@@ -1,0 +1,42 @@
+# SSH into remote VM
+ssh login@35.79.12.16
+
+# Update package index
+sudo apt update
+
+# Install MySQL server
+sudo apt install mysql-server -y
+
+# Secure MySQL installation
+sudo mysql_secure_installation
+
+# Allow remote connections by modifying the bind address
+sudo sed -i "s/^bind-address.*/bind-address = 0.0.0.0/" /etc/mysql/mysql.conf.d/mysqld.cnf
+
+# Restart MySQL service
+sudo systemctl restart mysql
+
+# Log in to MySQL as root
+sudo mysql -u root -p
+
+# Grant remote access to a specific user (replace 'username' and 'password')
+CREATE USER 'username'@'%' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON *.* TO 'username'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+EXIT;
+
+# Add a GCP firewall rule to allow traffic on MySQL's default port (3306)
+# Replace 'YOUR_INSTANCE_NAME' and 'YOUR_PROJECT_ID' accordingly
+gcloud compute firewall-rules create allow-mysql \
+    --direction=INGRESS \
+    --priority=1000 \
+    --network=default \
+    --action=ALLOW \
+    --rules=tcp:3306 \
+    --source-ranges=0.0.0.0/0 \
+    --target-tags=allow-mysql
+
+# Optional: Assign the firewall tag to your VM instance (replace 'YOUR_INSTANCE_NAME' and 'YOUR_PROJECT_ID')
+gcloud compute instances add-tags YOUR_INSTANCE_NAME \
+    --tags=allow-mysql \
+    --zone=YOUR_ZONE
