@@ -16,6 +16,9 @@ sudo sed -i "s/^bind-address.*/bind-address = 0.0.0.0/" /etc/mysql/mysql.conf.d/
 # Restart MySQL service
 sudo systemctl restart mysql
 
+# check mysql status
+sudo systemctl status mysql
+
 # Log in to MySQL as root
 sudo mysql -u root -p
 
