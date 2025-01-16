@@ -20,6 +20,7 @@ try:
     cursor = connection.cursor()
     cursor.execute("CREATE TABLE mytest (id INTEGER PRIMARY KEY)")
     cursor.execute("INSERT INTO mytest (id) VALUES (1), (2)")
+    connection.commit()  # Commit the transaction
     cursor.execute("SELECT * FROM mytest")
     print(cursor.fetchall())
 finally:

@@ -33,6 +33,7 @@ def read_records(connection):
     with connection.cursor() as cursor:
         query = "SELECT * FROM `КЛАСИ`"
         cursor.execute(query)
+        connection.commit()  # Commit the transaction
         for row in cursor.fetchall():
             print(row)
 
