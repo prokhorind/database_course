@@ -1,4 +1,5 @@
 import pymysql
+import cryptography
 
 
 # Function to create a connection to the database
