@@ -1,0 +1,67 @@
+sudo mysql -u root -p
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| leader171          |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use leader171
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+
+mysql> show tables;
++---------------------+
+| Tables_in_leader171 |
++---------------------+
+| test_table          |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM test_table;
+Empty set (0.00 sec)
+
+mysql> SELECT * FROM test_table;
++----+---------------------+-------+-----------+
+| id | created_at          | name  | surname   |
++----+---------------------+-------+-----------+
+|  1 | 2025-01-16 20:04:42 | Denys | Prokhorin |
++----+---------------------+-------+-----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM test_table;
++----+---------------------+-------+-----------+
+| id | created_at          | name  | surname   |
++----+---------------------+-------+-----------+
+|  1 | 2025-01-16 20:04:42 | Denys | Prokhorin |
+|  2 | 2025-01-16 20:08:06 | Ivan  | Ivanov    |
+|  3 | 2025-01-16 20:09:21 | Denys | Ivanov    |
++----+---------------------+-------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM test_table WHERE name = 'Denys';
++----+---------------------+-------+-----------+
+| id | created_at          | name  | surname   |
++----+---------------------+-------+-----------+
+|  1 | 2025-01-16 20:04:42 | Denys | Prokhorin |
+|  3 | 2025-01-16 20:09:21 | Denys | Ivanov    |
++----+---------------------+-------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT id , name , surname FROM test_table WHERE name = 'Denys';
++----+-------+-----------+
+| id | name  | surname   |
++----+-------+-----------+
+|  1 | Denys | Prokhorin |
+|  3 | Denys | Ivanov    |
++----+-------+-----------+
+2 rows in set (0.00 sec)
+
