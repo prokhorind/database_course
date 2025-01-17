@@ -4,6 +4,13 @@ SELECT Name FROM Superheroes;
 
 SELECT Name, RealName FROM Superheroes;
 
+SELECT
+    Name, RealName
+FROM
+    Superheroes
+WHERE
+    CityID = 1;
+
 
 SELECT Villains.Name
 FROM Villains
@@ -27,6 +34,10 @@ JOIN
 JOIN
     Villains v ON svr.VillainID = v.VillainID;
 
+
+SELECT Name, 'Superhero' AS Type FROM Superheroes
+UNION ALL
+SELECT Name, 'Villain' AS Type FROM Villains;
 
 
 
