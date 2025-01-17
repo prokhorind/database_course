@@ -17,6 +17,17 @@ LEFT JOIN Superheroes ON Cities.CityID = Superheroes.CityID
 GROUP BY Cities.Name;
 
 
+SELECT
+    sh.Name AS SuperheroName,
+    v.Name AS VillainName
+FROM
+    SuperheroVillainRelations svr
+JOIN
+    Superheroes sh ON svr.SuperheroID = sh.SuperheroID
+JOIN
+    Villains v ON svr.VillainID = v.VillainID;
+
+
 
 
 SELECT 'Superhero' AS Type, Superheroes.Name AS Name
