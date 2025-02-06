@@ -1,0 +1,16 @@
+Завдання: Створення таблиці для бази даних
+:
+Ви повинні створити таблицю для збереження інформації про учнів за допомогою SQL запитів. Таблиця має назву Surname_Students і містить наступні поля:
+: Прізвище учня LastName (тип даних: varchar(255), є первинним ключем).
+: Адреса проживання учня Address (тип даних: varchar(255)).
+: Дата народження учня BirthDate (тип даних: datetime).
+: Зріст учня Height (тип даних: double).
+: Улюблений предмет Favorite Subject (тип даних: varchar(255)).
+: Оцінка з інформатики Informatics (тип даних: int).
+: Оцінка з історії History (тип даних: int).
+: Клас, у якому навчається учень Class (тип даних: int). P.S. - такий самий тип данних як і в Surname_Сlasses
+Використовуючи SQL, створіть таблицю Surname_Students з вказаними полями.
+Додати Зовнішній ключ до таблиці  Surname_Students
+ALTER TABLE `Surname_Students` ADD CONSTRAINT `Surname_Students_Class_fk` FOREIGN KEY (`Class`) REFERENCES `Surname_Classes`(`Class`) ON DELETE CASCADE;
+Вставте до таблиці щонайменше 3 записи з вигаданими даними.
+Напишіть SQL-запит, який виведе всіх учнів, у яких оцінка з інформатики більше 8.
