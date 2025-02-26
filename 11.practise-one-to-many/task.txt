@@ -1,0 +1,33 @@
+Завдання
+Створіть таблицю owners з такими полями:
+
+id (первинний ключ, серійний)
+name (текст, ім'я власника)
+phone (текст, номер телефону власника)
+
+Створіть таблицю cars з такими полями:
+
+id (первинний ключ, серійний)
+brand (текст, марка автомобіля)
+model (текст, модель автомобіля)
+year (ціле число, рік випуску)
+owner_id (ціле число, зовнішній ключ на owners(id))
+Вставте у таблиці наступні дані:
+
+Власники:
+(1, 'Student Name Surname', '123-456-789')
+(2, 'Марія Іванова', '987-654-321')
+Автомобілі:
+(1, 'Toyota', 'Camry', 2020, 1)
+(2, 'Honda', 'Civic', 2019, 1)
+(3, 'Ford', 'Focus', 2018, 2)
+
+Виконати запит
+SELECT
+    owners.id AS owner_id,
+    owners.name AS owner_name,
+    owners.phone,
+    STRING_AGG(cars.brand || ' ' || cars.model || ' (' || cars.year || ')', ', ') AS cars_list
+FROM owners
+LEFT JOIN cars ON owners.id = cars.owner_id
+GROUP BY owners.id, owners.name, owners.phone;
