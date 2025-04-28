@@ -1,0 +1,147 @@
+[
+  {
+    "_id": 1,
+    "description": "Bank heist",
+    "date_of_crime": { "$date": "2025-01-25T00:00:00Z" },
+    "crime_types": [
+      { "crime_type_id": 1, "crime_type": "Robbery" }
+    ],
+    "officers": [
+      { "officer_id": 1, "name": "John Doe", "badge_number": "12345" }
+    ],
+    "suspects": [
+      {
+        "suspect_id": 1,
+        "name": "Mark Wilson",
+        "date_of_birth": { "$date": "1999-07-30T00:00:00Z" },
+        "guilty_party": {
+          "last_words": "I am guilty"
+        }
+      }
+    ],
+    "investigation_results": [
+      { "description": "Suspect arrested", "date_of_result": { "$date": "2025-02-10T00:00:00Z" }, "officer_id": 1 },
+      { "description": "Suspect convicted", "date_of_result": { "$date": "2025-02-20T00:00:00Z" }, "officer_id": 1 },
+      { "description": "Investigation closed", "date_of_result": { "$date": "2025-03-01T00:00:00Z" }, "officer_id": 1 },
+      { "description": "Sentenced to prison", "date_of_result": { "$date": "2025-03-10T00:00:00Z" }, "officer_id": 1 },
+      { "description": "Plea bargain", "date_of_result": { "$date": "2025-03-15T00:00:00Z" }, "officer_id": 1 }
+    ]
+  },
+  {
+    "_id": 2,
+    "description": "Car theft",
+    "date_of_crime": { "$date": "2025-02-10T00:00:00Z" },
+    "crime_types": [
+      { "crime_type_id": 2, "crime_type": "Theft" }
+    ],
+    "officers": [
+      { "officer_id": 2, "name": "Emily White", "badge_number": "67890" }
+    ],
+    "suspects": [
+      {
+        "suspect_id": 2,
+        "name": "Daniel Miller",
+        "date_of_birth": { "$date": "1997-04-04T00:00:00Z" },
+        "guilty_party": {
+          "last_words": "I will return it"
+        }
+      }
+    ],
+    "investigation_results": [
+      { "description": "Suspect arrested", "date_of_result": { "$date": "2025-02-18T00:00:00Z" }, "officer_id": 2 },
+      { "description": "Suspect convicted", "date_of_result": { "$date": "2025-02-25T00:00:00Z" }, "officer_id": 2 },
+      { "description": "Investigation closed", "date_of_result": { "$date": "2025-03-05T00:00:00Z" }, "officer_id": 2 },
+      { "description": "Sentenced to prison", "date_of_result": { "$date": "2025-03-12T00:00:00Z" }, "officer_id": 2 },
+      { "description": "Plea bargain", "date_of_result": { "$date": "2025-03-20T00:00:00Z" }, "officer_id": 2 }
+    ]
+  },
+  {
+    "_id": 3,
+    "description": "Home burglary with fraudulent documents",
+    "date_of_crime": { "$date": "2025-03-01T00:00:00Z" },
+    "crime_types": [
+      { "crime_type_id": 3, "crime_type": "Burglary" },
+      { "crime_type_id": 4, "crime_type": "Fraud" }
+    ],
+    "officers": [
+      { "officer_id": 1, "name": "John Doe", "badge_number": "12345" }
+    ],
+    "suspects": [
+      {
+        "suspect_id": 1,
+        "name": "Mark Wilson",
+        "date_of_birth": { "$date": "1999-07-30T00:00:00Z" },
+        "guilty_party": {
+          "last_words": "I regret my actions"
+        }
+      }
+    ],
+    "investigation_results": [
+      { "description": "Suspect arrested", "date_of_result": { "$date": "2025-03-05T00:00:00Z" }, "officer_id": 1 },
+      { "description": "Suspect convicted", "date_of_result": { "$date": "2025-03-12T00:00:00Z" }, "officer_id": 1 },
+      { "description": "Investigation closed", "date_of_result": { "$date": "2025-03-20T00:00:00Z" }, "officer_id": 1 },
+      { "description": "Sentenced to prison", "date_of_result": { "$date": "2025-03-25T00:00:00Z" }, "officer_id": 1 },
+      { "description": "Plea bargain", "date_of_result": { "$date": "2025-03-28T00:00:00Z" }, "officer_id": 1 }
+    ]
+  },
+  {
+    "_id": 4,
+    "description": "Physical assault during a fight",
+    "date_of_crime": { "$date": "2025-03-12T00:00:00Z" },
+    "crime_types": [
+      { "crime_type_id": 5, "crime_type": "Arson" }
+    ],
+    "officers": [
+      { "officer_id": 2, "name": "Emily White", "badge_number": "67890" }
+    ],
+    "suspects": [
+      {
+        "suspect_id": 4,
+        "name": "Bob Smith",
+        "date_of_birth": { "$date": "2000-02-22T00:00:00Z" }
+      }
+    ],
+    "investigation_results": [
+      { "description": "Suspect arrested", "date_of_result": { "$date": "2025-03-15T00:00:00Z" }, "officer_id": 2 },
+      { "description": "Suspect convicted", "date_of_result": { "$date": "2025-03-22T00:00:00Z" }, "officer_id": 2 },
+      { "description": "Investigation closed", "date_of_result": { "$date": "2025-03-30T00:00:00Z" }, "officer_id": 2 },
+      { "description": "Sentenced to prison", "date_of_result": { "$date": "2025-04-05T00:00:00Z" }, "officer_id": 2 },
+      { "description": "Plea bargain", "date_of_result": { "$date": "2025-04-10T00:00:00Z" }, "officer_id": 2 }
+    ]
+  },
+  {
+    "_id": 5,
+    "description": "Setting fire to a warehouse and causing property damage",
+    "date_of_crime": { "$date": "2025-03-18T00:00:00Z" },
+    "crime_types": [
+      { "crime_type_id": 5, "crime_type": "Arson" },
+      { "crime_type_id": 6, "crime_type": "Vandalism" }
+    ],
+    "officers": [
+      { "officer_id": 1, "name": "John Doe", "badge_number": "12345" }
+    ],
+    "suspects": [
+      {
+        "suspect_id": 3,
+        "name": "Alice Johnson",
+        "date_of_birth": { "$date": "1998-11-15T00:00:00Z" },
+        "guilty_party": {
+          "last_words": "I am sorry for what I did"
+        }
+      },
+      {
+        "suspect_id": 4,
+        "name": "Bob Smith",
+        "date_of_birth": { "$date": "2000-02-22T00:00:00Z" }
+      }
+    ],
+    "investigation_results": [
+      { "description": "Suspects arrested", "date_of_result": { "$date": "2025-03-20T00:00:00Z" }, "officer_id": 1 },
+      { "description": "Suspect Alice Johnson convicted", "date_of_result": { "$date": "2025-03-25T00:00:00Z" }, "officer_id": 1 },
+      { "description": "Suspect Bob Smith acquitted", "date_of_result": { "$date": "2025-03-25T00:00:00Z" }, "officer_id": 1 },
+      { "description": "Investigation closed", "date_of_result": { "$date": "2025-03-30T00:00:00Z" }, "officer_id": 1 },
+      { "description": "Sentenced to prison", "date_of_result": { "$date": "2025-04-05T00:00:00Z" }, "officer_id": 1 },
+      { "description": "Plea bargain", "date_of_result": { "$date": "2025-04-10T00:00:00Z" }, "officer_id": 1 }
+    ]
+  }
+]
