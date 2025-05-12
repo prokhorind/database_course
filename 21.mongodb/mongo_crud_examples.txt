@@ -1,0 +1,86 @@
+// =================== INSERT ONE ===================
+db.officers.insertOne({
+  name: "Ethan Clark",
+  badge_number: "99001"
+});
+
+db.officers.insertMany([
+  {
+    name: "John Doe",
+    badge_number: "12345"
+  },
+  {
+    name: "Emily White",
+    badge_number: "67890"
+  },
+  {
+    name: "Corey Taylor",
+    badge_number: "0000001"
+  }
+]);
+
+// =================== FIND EXAMPLES ===================
+
+// 1. Find all documents
+db.officers.find({});
+
+// 2. Find one by exact match
+db.officers.find({ name: "Ethan Clark" });
+
+// 3. Find where badge_number > "50000"
+db.officers.find({ badge_number: { $gt: "50000" } });
+
+// 4. Find with AND condition
+db.officers.find({
+  name: "John Smith",
+  badge_number: "0000000111"
+});
+
+// 5. Find with OR condition
+db.officers.find({
+  $or: [
+    { name: "John Doe" },
+    { badge_number: "44556" }
+  ]
+});
+
+// 6. Find names starting with 'J'
+db.officers.find({ name: /^J/ });
+
+// 7. Find names containing 'son' (case-insensitive)
+db.officers.find({ name: /son/i });
+
+// 8. Find documents with badge_number in a list
+db.officers.find({
+  badge_number: { $in: ["12345", "54321", "0000000111"] }
+});
+
+// 9. Check if 'name' field exists
+db.officers.find({ name: { $exists: true } });
+
+// =================== UPDATE EXAMPLES ===================
+
+// 1. Update one officer's badge number
+db.officers.updateOne(
+  { name: "Corey Taylor" },
+  { $set: { badge_number: "0000001000" } }
+);
+
+// 2. Update multiple badge numbers starting with '000' to start with '999'
+db.officers.updateMany(
+  { badge_number: /^000/ },
+  [{ $set: { badge_number: { $concat: ["999", { $substrBytes: ["$badge_number", 3, -1] }] } } }]
+);
+
+// =================== DELETE EXAMPLES ===================
+
+// 1. Delete one document
+db.officers.deleteOne({ name: "Ava Anderson" });
+
+// 2. Delete all with badge_number less than "20000"
+db.officers.deleteMany({ badge_number: { $lt: "20000" } });
+
+// =================== INDEX (Optional) ===================
+
+// Create index on badge_number for faster search
+db.officers.createIndex({ badge_number: 1 });
