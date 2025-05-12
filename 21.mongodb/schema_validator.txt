@@ -1,0 +1,21 @@
+db.createCollection("officers", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["name", "badge_number"],
+      properties: {
+        name: {
+          bsonType: "string",
+          description: "Must be a string and is required"
+        },
+        badge_number: {
+          bsonType: "string",
+          pattern: "^[0-9]{4,12}$",
+          description: "Must be a string of 4–12 digits"
+        }
+      }
+    }
+  },
+  validationLevel: "strict",
+  validationAction: "error"
+});
